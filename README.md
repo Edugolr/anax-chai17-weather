@@ -7,6 +7,8 @@ Code and build Status
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Edugolr/anax-chai17-weather/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Edugolr/anax-chai17-weather/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/Edugolr/anax-chai17-weather/badges/build.png?b=master)](https://scrutinizer-ci.com/g/Edugolr/anax-chai17-weather/build-status/master)
 [![Code Intelligence Status](https://scrutinizer-ci.com/g/Edugolr/anax-chai17-weather/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
+[![Maintainability](https://api.codeclimate.com/v1/badges/33cddf087b9670138b32/maintainability)](https://codeclimate.com/github/Edugolr/anax-chai17-weather/maintainability)
+
 
 Versions
 -----------------------------------
