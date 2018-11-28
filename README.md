@@ -1,6 +1,6 @@
 anax-chai17-weather
 ==================================
-[![Build Status](https://travis-ci.org/Edugolr/anax-chai17-weather.svg?branch=master)](https://travis-ci.org/ Edugolr / anax-chai17-weather)
+[![Build Status](https://travis-ci.org/Edugolr/anax-chai17-weather.svg?branch=master)](https://travis-ci.org/Edugolr / anax-chai17-weather)
 
 
 Table of content
