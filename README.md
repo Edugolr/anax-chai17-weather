@@ -1,9 +1,23 @@
 anax-chai17-weather
 ==================================
+
+Code and build Status
+----------------------------------
 [![Build Status](https://travis-ci.org/Edugolr/anax-chai17-weather.svg?branch=master)](https://travis-ci.org/Edugolr/anax-chai17-weather)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Edugolr/anax-chai17-weather/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Edugolr/anax-chai17-weather/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/Edugolr/anax-chai17-weather/badges/build.png?b=master)](https://scrutinizer-ci.com/g/Edugolr/anax-chai17-weather/build-status/master)
 [![Code Intelligence Status](https://scrutinizer-ci.com/g/Edugolr/anax-chai17-weather/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
+
+Versions
+-----------------------------------
+[![Latest Stable Version](https://poser.pugx.org/chai17/weather/v/stable)](https://packagist.org/packages/chai17/weather)
+[![Latest Unstable Version](https://poser.pugx.org/chai17/weather/v/unstable)](https://packagist.org/packages/chai17/weather)
+
+Downloads
+-----------------------------------
+[![Total Downloads](https://poser.pugx.org/chai17/weather/downloads)](https://packagist.org/packages/chai17/weather)
+[![Monthly Downloads](https://poser.pugx.org/chai17/weather/d/monthly)](https://packagist.org/packages/chai17/weather)
+[![Daily Downloads](https://poser.pugx.org/chai17/weather/d/daily)](https://packagist.org/packages/chai17/weather)
 
 Table of content
 ------------------------------------
@@ -79,7 +93,7 @@ This is a Anax modulen and primarly intended to be used together with the Anax f
 
 License
 ------------------
-
+[![License](https://poser.pugx.org/chai17/weather/license)](https://packagist.org/packages/chai17/weather)
 This software carries a MIT license. See [LICENSE.txt](LICENSE.txt) for details.
 
 
