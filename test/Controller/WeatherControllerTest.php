@@ -26,6 +26,7 @@ class WeatherControllerTest extends TestCase
         // Setup di
         $this->di = new DIFactoryConfig();
         $this->di->loadServices(ANAX_INSTALL_PATH . "/config/di");
+        $this->di->loadServices(ANAX_INSTALL_PATH . "/test/config/di");
 
         // View helpers uses the global $di so it needs its value
         $di = $this->di;
