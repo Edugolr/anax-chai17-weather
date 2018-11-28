@@ -5,12 +5,26 @@ anax-chai17-weather
 Table of content
 ------------------------------------
 
+* [Install and setup Anax](#Install-and-setup-Anax)
 * [Install as Anax module](#Install-as-Anax-module)
 * [Install using scaffold postprocessing file](#Install-using-scaffold-postprocessing-file)
-* [Install and setup Anax](#Install-and-setup-Anax)
 * [Dependency](#Dependency)
 * [License](#License)
 
+
+Install and setup Anax
+------------------------------------
+
+You need a Anax installation, before you can use this module. You can create a sample Anax installation, using the scaffolding utility [`anax-cli`](https://github.com/canax/anax-cli).
+
+Scaffold a sample Anax installation `anax-site-develop` into the directory `rem`.
+
+```
+$ anax create weather anax-site-develop
+$ cd weather
+```
+
+Point your webserver to `weather/htdocs` and Anax should display a Home-page.
 
 
 
@@ -50,20 +64,6 @@ bash vendor/chai17/anax/scaffold/postprocess.d/700_weather.bash
 The postprocessing script should be run after the `composer require` is done.
 
 
-
-Install and setup Anax
-------------------------------------
-
-You need a Anax installation, before you can use this module. You can create a sample Anax installation, using the scaffolding utility [`anax-cli`](https://github.com/canax/anax-cli).
-
-Scaffold a sample Anax installation `anax-site-develop` into the directory `rem`.
-
-```
-$ anax create weather anax-site-develop
-$ cd weather
-```
-
-Point your webserver to `weather/htdocs` and Anax should display a Home-page.
 
 
 
