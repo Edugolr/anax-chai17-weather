@@ -6,9 +6,11 @@ Code and build Status
 [![Build Status](https://travis-ci.org/Edugolr/anax-chai17-weather.svg?branch=master)](https://travis-ci.org/Edugolr/anax-chai17-weather)
 [![CircleCI](https://circleci.com/gh/Edugolr/anax-chai17-weather.svg?style=svg)](https://circleci.com/gh/Edugolr/anax-chai17-weather)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Edugolr/anax-chai17-weather/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Edugolr/anax-chai17-weather/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/Edugolr/anax-chai17-weather/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Edugolr/anax-chai17-weather/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/Edugolr/anax-chai17-weather/badges/build.png?b=master)](https://scrutinizer-ci.com/g/Edugolr/anax-chai17-weather/build-status/master)
 [![Code Intelligence Status](https://scrutinizer-ci.com/g/Edugolr/anax-chai17-weather/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
 [![Maintainability](https://api.codeclimate.com/v1/badges/33cddf087b9670138b32/maintainability)](https://codeclimate.com/github/Edugolr/anax-chai17-weather/maintainability)
+[![SymfonyInsight](https://insight.symfony.com/projects/d1ef4ffd-911b-4796-b2d3-e557fd209a59/mini.svg)](https://insight.symfony.com/projects/d1ef4ffd-911b-4796-b2d3-e557fd209a59)
 
 
 Versions
