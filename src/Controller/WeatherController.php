@@ -83,7 +83,8 @@ class WeatherController implements ContainerInjectableInterface
         $mapDiv = $map->getMap($location["latitude"], $location["longitude"]);
         $weatherJson = $getJson->cUrlMulti($url);
         $weather = [];
-        for ($i=0; $i < count($weatherJson); $i++) {
+        $count = count($weatherJson);
+        for ($i=0; $i < $count; $i++) {
             array_push($weather, json_decode($weatherJson[$i], true));
         }
 

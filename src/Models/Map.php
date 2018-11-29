@@ -7,7 +7,7 @@ class Map
 
     public function getMap($latitude, $longitude)
     {
-        $this->mapDiv = "
+        $mapDiv = "
             <div id='mapdiv'></div>
             <script src='http://www.openlayers.org/api/OpenLayers.js'></script>
             <script>
@@ -31,6 +31,6 @@ class Map
             </script>
         ";
 
-        return $this->mapDiv;
+        return $mapDiv;
     }
 }
