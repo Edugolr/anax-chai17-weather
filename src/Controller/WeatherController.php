@@ -46,28 +46,31 @@ class WeatherController implements ContainerInjectableInterface
         $getJson = new Models\Curl;
         $map = new Models\Map;
         $validateIP = new Models\ValidateIP;
+        $locationHandler = new Models\Location;
 
         $request = $this->di->get("request");
         $page = $this->di->get("page");
         $ipNumber = $request->getGet("ip");
-        $test = $validateIP->validate($ipNumber);
-        if ($test[0]) {
-            $location = $getJson->cUrl($ipstack["url"]. $ipNumber. '?access_key='. $ipstack["key"]);
-            $location = json_decode($location, true);
-            $latitude = $location["latitude"];
-            $longitude = $location["longitude"];
-            $location = [$location["city"], $latitude, $longitude];
-        } else {
-            $search = array('å','ä','ö');
-            $replace = array('a','a','o');
-            $ipNumber = str_replace($search, $replace, $ipNumber);
-            $location = $getJson->cUrl($mapquest["url"]. $mapquest["key"]. $mapquest["extra"]. $ipNumber);
-            $location = json_decode($location, true);
-            $latitude = $location["results"][0]["locations"][0]["latLng"]["lat"];
-            $longitude = $location["results"][0]["locations"][0]["latLng"]["lng"];
-            $city = $location["results"][0]["locations"][0]["adminArea5"] ?? "Ingen ort";
-            $location = [$city, $latitude, $longitude];
-        }
+        $locationHandler->setLocation($ipNumber);
+        $location = $locationHandler->getLocation();
+        // $test = $validateIP->validate($ipNumber);
+        // if ($test[0]) {
+        //     $location = $getJson->cUrl($ipstack["url"]. $ipNumber. '?access_key='. $ipstack["key"]);
+        //     $location = json_decode($location, true);
+        //     $latitude = $location["latitude"];
+        //     $longitude = $location["longitude"];
+        //     $location = [$location["city"], $latitude, $longitude];
+        // } else {
+        //     $search = array('å','ä','ö');
+        //     $replace = array('a','a','o');
+        //     $ipNumber = str_replace($search, $replace, $ipNumber);
+        //     $location = $getJson->cUrl($mapquest["url"]. $mapquest["key"]. $mapquest["extra"]. $ipNumber);
+        //     $location = json_decode($location, true);
+        //     $latitude = $location["results"][0]["locations"][0]["latLng"]["lat"];
+        //     $longitude = $location["results"][0]["locations"][0]["latLng"]["lng"];
+        //     $city = $location["results"][0]["locations"][0]["adminArea5"] ?? "Ingen ort";
+        //     $location = [$city, $latitude, $longitude];
+        // }
 
         $extra = "?lang=sv&units=auto";
         $mapDiv = $map->getMap($latitude, $longitude);

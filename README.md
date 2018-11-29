@@ -25,6 +25,11 @@ Downloads
 [![Monthly Downloads](https://poser.pugx.org/chai17/weather/d/monthly)](https://packagist.org/packages/chai17/weather)
 [![Daily Downloads](https://poser.pugx.org/chai17/weather/d/daily)](https://packagist.org/packages/chai17/weather)
 
+
+Chat
+------------------------------------
+[![Join the chat at https://gitter.im/anax-chai17-weather/Lobby](https://badges.gitter.im/anax-chai17-weather/Lobby.svg)](https://gitter.im/anax-chai17-weather/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Table of content
 ------------------------------------
 
@@ -99,7 +104,7 @@ This is a Anax modulen and primarly intended to be used together with the Anax f
 
 License
 ------------------
-[![License](https://poser.pugx.org/chai17/weather/license)](https://packagist.org/packages/chai17/weather) [![Join the chat at https://gitter.im/anax-chai17-weather/Lobby](https://badges.gitter.im/anax-chai17-weather/Lobby.svg)](https://gitter.im/anax-chai17-weather/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![License](https://poser.pugx.org/chai17/weather/license)](https://packagist.org/packages/chai17/weather)
 This software carries a MIT license. See [LICENSE.txt](LICENSE.txt) for details.
 
 
