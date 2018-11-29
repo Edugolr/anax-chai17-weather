@@ -18,7 +18,8 @@ class WeatherController implements ContainerInjectableInterface
         $api = $this->di->get("ipstack");
         $ipstack = $api["config"];
         $getipInfo = new Models\Curl;
-        $userIp =  $getipInfo->cUrl($ipstack["url"]. "check". '?access_key='. $ipstack["key"]. "&fields=ip");
+        $extra =  "&fields=ip";
+        $userIp =  $getipInfo->cUrl($ipstack["url"]. "check". '?access_key='. $ipstack["key"]. $extra);
         $apiResult = json_decode($userIp, true);
 
         $session->set("userIp", $apiResult["ip"]);
@@ -36,12 +37,9 @@ class WeatherController implements ContainerInjectableInterface
     public function weatherActionGet()
     {
         $title = "Weather";
-        $api = $this->di->get("ipstack");
-        $ipstack = $api["config"];
-        $api = $this->di->get("mapquest");
-        $mapquest = $api["config"];
-        $api = $this->di->get("darksky");
-        $darksky = $api["config"];
+        $ipstack = $this->di->get("ipstack");
+        $mapquest = $this->di->get("mapquest");
+        $darksky = $this->di->get("darksky");
         $getJson = new Models\Curl;
         $map = new Models\Map;
         $locationHandler = new Models\Location;
@@ -49,9 +47,11 @@ class WeatherController implements ContainerInjectableInterface
         $request = $this->di->get("request");
         $page = $this->di->get("page");
         $ipNumber = $request->getGet("ip");
-        $location = $locationHandler->getLocation($ipNumber, $ipstack, $mapquest);
+        $location = $locationHandler->getLocation($ipNumber, $ipstack["config"], $mapquest["config"]);
+
+        $extra = "?lang=sv&units=auto";
         $mapDiv = $map->getMap($location["latitude"], $location["longitude"]);
-        $weatherJson = $getJson->cUrl($darksky["url"]. $darksky["key"]. "/". $location["latitude"]. ",". $location["longitude"]. "?lang=sv&units=auto");
+        $weatherJson = $getJson->cUrl($darksky["config"]["url"]. $darksky["config"]["key"]. "/". $location["latitude"]. ",". $location["longitude"]. $extra);
 
         $weather = json_decode($weatherJson, true);
         $page->add("weather/weather", ["location" => $location, "mapDiv" => $mapDiv, "weather" => $weather]);
@@ -62,12 +62,9 @@ class WeatherController implements ContainerInjectableInterface
     public function weatherOldActionGet()
     {
         $title = "Weather Old";
-        $api = $this->di->get("ipstack");
-        $ipstack = $api["config"];
-        $api = $this->di->get("darksky");
-        $darksky = $api["config"];
-        $api = $this->di->get("mapquest");
-        $mapquest = $api["config"];
+        $ipstack = $this->di->get("ipstack");
+        $mapquest = $this->di->get("mapquest");
+        $darksky = $this->di->get("darksky");
 
         $getJson = new Models\Curl;
         $map = new Models\Map;
@@ -76,13 +73,14 @@ class WeatherController implements ContainerInjectableInterface
         $request = $this->di->get("request");
         $page = $this->di->get("page");
         $ipNumber = $request->getGet("ip");
-        $location = $locationHandler->getLocation($ipNumber, $ipstack, $mapquest);
+        $location = $locationHandler->getLocation($ipNumber, $ipstack["config"], $mapquest["config"]);
 
         $url = [];
+        $extra = "?lang=sv&units=auto";
         $time  = time() - (30 * 24 * 60 * 60);
         for ($i=0; $i < 31; $i++) {
             $time  = time() - ($i * 24 * 60 * 60);
-            array_push($url, $darksky["url"]. $darksky["key"]. "/". $location["latitude"]. ",". $location["longitude"]. ",". $time. "?lang=sv&units=auto");
+            array_push($url, $darksky["config"]["url"]. $darksky["config"]["key"]. "/". $location["latitude"]. ",". $location["longitude"]. ",". $time. $extra);
         }
 
         $mapDiv = $map->getMap($location["latitude"], $location["longitude"]);
