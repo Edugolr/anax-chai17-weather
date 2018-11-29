@@ -2,32 +2,24 @@
 
 namespace Chai17\Models;
 
-use Anax\Commons\ContainerInjectableInterface;
-use Anax\Commons\ContainerInjectableTrait;
-use Chai17\Models;
-
-class Location implements ContainerInjectableInterface
+class Location
 {
 
-    use ContainerInjectableTrait;
-
-
-
-    public function getLocation($ipNumber)
+    public function getLocation($ipNumber, $ipstack, $mapquest)
     {
         $location = [];
-        $api = $this->di->get("ipstack");
-        $ipstack = $api["config"];
-        $api = $this->di->get("mapquest");
-        $mapquest = $api["config"];
-        $validateIP = new Models\ValidateIP;
+        $validateIP = new ValidateIP;
+        $getJson = new Curl;
         $test = $validateIP->validate($ipNumber);
         if ($test[0]) {
             $location = $getJson->cUrl($ipstack["url"]. $ipNumber. '?access_key='. $ipstack["key"]);
             $location = json_decode($location, true);
             $latitude = $location["latitude"];
             $longitude = $location["longitude"];
-            $location = [$location["city"], $latitude, $longitude];
+            $location = array(
+                "city"=> $location["city"],
+                "latitude"=> $latitude,
+                "longitude"=> $longitude);
         } else {
             $search = array('å','ä','ö');
             $replace = array('a','a','o');
@@ -37,11 +29,11 @@ class Location implements ContainerInjectableInterface
             $latitude = $location["results"][0]["locations"][0]["latLng"]["lat"];
             $longitude = $location["results"][0]["locations"][0]["latLng"]["lng"];
             $city = $location["results"][0]["locations"][0]["adminArea5"] ?? "Ingen ort";
-            $location = [$city, $latitude, $longitude];
+            $location = array(
+                "city"=> $city,
+                "latitude"=> $latitude,
+                "longitude"=> $longitude);
         }
-
         return $location;
-
     }
-
 }

@@ -45,35 +45,16 @@ class WeatherController implements ContainerInjectableInterface
         $darksky = $api["config"];
         $getJson = new Models\Curl;
         $map = new Models\Map;
-        $validateIP = new Models\ValidateIP;
         $locationHandler = new Models\Location;
 
         $request = $this->di->get("request");
         $page = $this->di->get("page");
         $ipNumber = $request->getGet("ip");
-        $location = $locationHandler->getLocation($ipNumber);
-        // $test = $validateIP->validate($ipNumber);
-        // if ($test[0]) {
-        //     $location = $getJson->cUrl($ipstack["url"]. $ipNumber. '?access_key='. $ipstack["key"]);
-        //     $location = json_decode($location, true);
-        //     $latitude = $location["latitude"];
-        //     $longitude = $location["longitude"];
-        //     $location = [$location["city"], $latitude, $longitude];
-        // } else {
-        //     $search = array('å','ä','ö');
-        //     $replace = array('a','a','o');
-        //     $ipNumber = str_replace($search, $replace, $ipNumber);
-        //     $location = $getJson->cUrl($mapquest["url"]. $mapquest["key"]. $mapquest["extra"]. $ipNumber);
-        //     $location = json_decode($location, true);
-        //     $latitude = $location["results"][0]["locations"][0]["latLng"]["lat"];
-        //     $longitude = $location["results"][0]["locations"][0]["latLng"]["lng"];
-        //     $city = $location["results"][0]["locations"][0]["adminArea5"] ?? "Ingen ort";
-        //     $location = [$city, $latitude, $longitude];
-        // }
+        $location = $locationHandler->getLocation($ipNumber, $ipstack, $mapquest);
 
         $extra = "?lang=sv&units=auto";
-        $mapDiv = $map->getMap($latitude, $longitude);
-        $weatherJson = $getJson->cUrl($darksky["url"]. $darksky["key"]. "/". $latitude. ",". $longitude. $extra);
+        $mapDiv = $map->getMap($location["latitude"], $location["longitude"]);
+        $weatherJson = $getJson->cUrl($darksky["url"]. $darksky["key"]. "/". $location["latitude"]. ",". $location["longitude"]. $extra);
 
         $weather = json_decode($weatherJson, true);
         $page->add("weather/weather", [
@@ -94,48 +75,28 @@ class WeatherController implements ContainerInjectableInterface
         $ipstack = $api["config"];
         $api = $this->di->get("darksky");
         $darksky = $api["config"];
-        $title = "Weather";
+        $api = $this->di->get("mapquest");
+        $mapquest = $api["config"];
 
         $getJson = new Models\Curl;
         $map = new Models\Map;
-        $validateIP = new Models\ValidateIP;
         $locationHandler = new Models\Location;
 
         $request = $this->di->get("request");
         $page = $this->di->get("page");
         $ipNumber = $request->getGet("ip");
-        $location = $locationHandler->getLocation($ipNumber);
-        // $test = $validateIP->validate($ipNumber);
-        // if ($test[0]) {
-        //     $location = $getJson->cUrl($ipstack["url"]. $ipNumber. '?access_key='. $ipstack["key"]);
-        //     $location = json_decode($location, true);
-        //     $latitude = $location["latitude"];
-        //     $longitude = $location["longitude"];
-        //     $location = [$location["city"], $latitude, $longitude];
-        // } else {
-        //     $search = array('å','ä','ö');
-        //     $replace = array('a','a','o');
-        //     $ipNumber = str_replace($search, $replace, $ipNumber);
-        //     $location = $getJson->cUrl("http://www.mapquestapi.com/geocoding/v1/address?key=HVd7TbTeHvGGiGF14rSntAMMq3VDSAtT&location=".$ipNumber);
-        //     $location = json_decode($location, true);
-        //
-        //     $latitude = $location["results"][0]["locations"][0]["latLng"]["lat"];
-        //     $longitude = $location["results"][0]["locations"][0]["latLng"]["lng"];
-        //     $location = $getJson->cUrl("http://www.mapquestapi.com/geocoding/v1/reverse?key=HVd7TbTeHvGGiGF14rSntAMMq3VDSAtT&location=".$latitude. ",". $longitude);
-        //     $location = json_decode($location, true);
-        //     $city = $location["results"][0]["locations"][0]["adminArea5"] ?? "Ingen ort";
-        //     $location = [$city, $latitude, $longitude];
-        // }
+        $location = $locationHandler->getLocation($ipNumber, $ipstack, $mapquest);
+
         $url = [];
         $extra = "?lang=sv&units=auto";
         $time  = time() - (30 * 24 * 60 * 60);
         for ($i=0; $i < 31; $i++) {
             $time  = time() - ($i * 24 * 60 * 60);
-            array_push($url, $darksky["url"]. $darksky["key"]. "/". $latitude. ",". $longitude. ",". $time. $extra);
+            array_push($url, $darksky["url"]. $darksky["key"]. "/". $location["latitude"]. ",". $location["longitude"]. ",". $time. $extra);
         }
 
 
-        $mapDiv = $map->getMap($latitude, $longitude);
+        $mapDiv = $map->getMap($location["latitude"], $location["longitude"]);
         $weatherJson = $getJson->cUrlMulti($url);
         $weather = [];
         for ($i=0; $i < count($weatherJson); $i++) {

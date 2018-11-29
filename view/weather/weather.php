@@ -3,11 +3,12 @@ namespace Anax\View;
 
 if (isset($location)) {
     ?>
-    Stad:   <?= $location[0] ?> <br>
-    Lat:    <?= $location[1] ?> <br>
-    Long:   <?= $location[2] ?> <br>
+    Stad:   <?= $location["city"] ?> <br>
+    Lat:    <?= $location["latitude"] ?> <br>
+    Long:   <?= $location["longitude"] ?> <br>
     <?php
 }
+
 setlocale(LC_ALL, 'swedish.UTF-8');
 if (isset($weather["currently"])) {
     ?>
