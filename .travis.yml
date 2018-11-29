@@ -31,4 +31,4 @@ script:
 
 after_script:
 - mv tests/_output/coverage.xml clover.xml
-- ./cc-test-reporter after-build --coverage-input-type clover --id 12345 --exit-code $TRAVIS_TEST_RESULT
+- ./cc-test-reporter after-build --coverage-input-type clover --id c04cffc3db8710d798d7e62f2c68216ff8dff1f2b4b999d03ade018b36b9327a --exit-code $TRAVIS_TEST_RESULT
