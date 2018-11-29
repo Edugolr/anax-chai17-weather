@@ -51,8 +51,7 @@ class WeatherController implements ContainerInjectableInterface
         $request = $this->di->get("request");
         $page = $this->di->get("page");
         $ipNumber = $request->getGet("ip");
-        $locationHandler->setLocation($ipNumber);
-        $location = $locationHandler->getLocation();
+        $location = $locationHandler->getLocation($ipNumber);
         // $test = $validateIP->validate($ipNumber);
         // if ($test[0]) {
         //     $location = $getJson->cUrl($ipstack["url"]. $ipNumber. '?access_key='. $ipstack["key"]);
@@ -105,8 +104,7 @@ class WeatherController implements ContainerInjectableInterface
         $request = $this->di->get("request");
         $page = $this->di->get("page");
         $ipNumber = $request->getGet("ip");
-        $locationHandler->setLocation($ipNumber);
-        $location = $locationHandler->getLocation();
+        $location = $locationHandler->getLocation($ipNumber);
         // $test = $validateIP->validate($ipNumber);
         // if ($test[0]) {
         //     $location = $getJson->cUrl($ipstack["url"]. $ipNumber. '?access_key='. $ipstack["key"]);

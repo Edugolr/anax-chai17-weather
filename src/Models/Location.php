@@ -11,11 +11,11 @@ class Location implements ContainerInjectableInterface
 
     use ContainerInjectableTrait;
 
-    private $location = [];
 
-    public function setLocation($ipNumber)
+
+    public function getLocation($ipNumber)
     {
-        $location = $this->location;
+        $location = [];
         $api = $this->di->get("ipstack");
         $ipstack = $api["config"];
         $api = $this->di->get("mapquest");
@@ -40,12 +40,8 @@ class Location implements ContainerInjectableInterface
             $location = [$city, $latitude, $longitude];
         }
 
-        $this->location = $location;
+        return $location;
 
     }
 
-    public function getLocation()
-    {
-        return $this->location;
-    }
 }
