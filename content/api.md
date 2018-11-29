@@ -3,58 +3,67 @@ REST API
 
 Här är en samling av de verktyg och tekniker du kan använda för att jobba med REST API på webbplatsen.
 
-**Resource URL**
-
+Resource URL
+---------------------
 `http://www.student.bth.se/~chai17/dbwebb-kurser/ramverk1/me/redovisa/htdocs/ipvalidatejson/`
 
-| Resource         | Information |
-|:-----------------|------------:|
-|Response Formats  | JSON        |
-|Authentication	   | No          |
-|Rate Limited	   | No          |
+| Resource          | Information |
+| :---------------- | ----------: |
+| Response Formats  | JSON        |
+| Authentication    | No          |
+| Rate Limited	    | No          |
 
 ##Exempel länkar
 
-**Startsida**
+Startsida
+----------------------
 [Startsida Ip validator Json](http://www.student.bth.se/~chai17/dbwebb-kurser/ramverk1/me/redovisa/htdocs/ipvalidatejson).
 
-**Ip validering**
+Ip validering
+------------------------
 [Exempel ip validator](http://www.student.bth.se/~chai17/dbwebb-kurser/ramverk1/me/redovisa/htdocs/ipvalidatejson/standard?ip=37.123.148.64).
 
-**Plats**
+Plats
+----------------------
 [Exempel ip location](http://www.student.bth.se/~chai17/dbwebb-kurser/ramverk1/me/redovisa/htdocs/ipvalidatejson/location?ip=37.123.148.64).
 
-**Väder**
+Väder
+----------------------
 [Exempel ip väder](http://www.student.bth.se/~chai17/dbwebb-kurser/ramverk1/me/redovisa/htdocs/ipvalidatejson/weather?ip=37.123.148.64)
 [Exempel stad väder (30 dagar)](http://www.student.bth.se/~chai17/dbwebb-kurser/ramverk1/me/redovisa/htdocs/ipvalidatejson/weatherOld?ip=Boras)
 
 ##API
 GET
 
-**Ip validering**
+Ip validering
+----------------------
 `ipvalidatejson/standard?ip=[ip]`
 
-**Resultat**
-```
+Resultat
+--------------------------
+```json
 {
     "type": "IPV4",
     "host": "h-148-64.A317.priv.bahnhof.se",
     "ip": "37.123.148.64"
 }
 ```
-**Ip plats**
+Ip plats
+------------------------
 `ipvalidatejson/location?ip=[ip]`
 
-**Resultat**
-```
+Resultat
+--------------------------
+```json
 {"ip":"37.123.148.64","type":"ipv4","continent_code":"EU","continent_name":"Europe","country_code":"SE","country_name":"Sweden","region_code":"O","region_name":"V\u00e4stra G\u00f6taland","city":"Dalsjoefors","zip":"516 31","latitude":57.7167,"longitude":13.0833,"location":{"geoname_id":2718144,"capital":"Stockholm","languages":[{"code":"sv","name":"Swedish","native":"Svenska"}],"country_flag":"http:\/\/assets.ipstack.com\/flags\/se.svg","country_flag_emoji":"\ud83c\uddf8\ud83c\uddea","country_flag_emoji_unicode":"U+1F1F8 U+1F1EA","calling_code":"46","is_eu":true}}
 ```
-**Väder**
+Väder
+-----------------------
 `ipvalidatejson/weather?ip=[ip] / ipvalidatejson/weather?ip=[city]`
 
-
-**Resultat**
-```
+Resultat
+-------------------------
+```json
 {
     "res": {
         "ip": "37.123.148.64",
@@ -1398,6 +1407,6 @@ GET
 }
 ```
 
-**Väder (30 dagar bakåt)**
-
+Väder (30 dagar bakåt)
+--------------------------
 `ipvalidatejson/weatherOld?ip=[ip] / ipvalidatejson/weatherOld?ip=[city]`

@@ -13,8 +13,6 @@ Code and build Status
 [![Maintainability](https://api.codeclimate.com/v1/badges/33cddf087b9670138b32/maintainability)](https://codeclimate.com/github/Edugolr/anax-chai17-weather/maintainability)
 [![SymfonyInsight](https://insight.symfony.com/projects/d1ef4ffd-911b-4796-b2d3-e557fd209a59/mini.svg)](https://insight.symfony.com/projects/d1ef4ffd-911b-4796-b2d3-e557fd209a59)
 
-
-
 Versions
 -----------------------------------
 [![Latest Stable Version](https://poser.pugx.org/chai17/weather/v/stable)](https://packagist.org/packages/chai17/weather)
@@ -26,7 +24,6 @@ Downloads
 [![Monthly Downloads](https://poser.pugx.org/chai17/weather/d/monthly)](https://packagist.org/packages/chai17/weather)
 [![Daily Downloads](https://poser.pugx.org/chai17/weather/d/daily)](https://packagist.org/packages/chai17/weather)
 
-
 Chat
 ------------------------------------
 [![Join the chat at https://gitter.im/anax-chai17-weather/Lobby](https://badges.gitter.im/anax-chai17-weather/Lobby.svg)](https://gitter.im/anax-chai17-weather/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
@@ -34,12 +31,11 @@ Chat
 Table of content
 ------------------------------------
 
-* [Install and setup Anax](#Install-and-setup-Anax)
-* [Install as Anax module](#Install-as-Anax-module)
-* [Install using scaffold postprocessing file](#Install-using-scaffold-postprocessing-file)
-* [Dependency](#Dependency)
-* [License](#License)
-
+*  [Install and setup Anax](#Install-and-setup-Anax)
+*  [Install as Anax module](#Install-as-Anax-module)
+*  [Install using scaffold postprocessing file](#Install-using-scaffold-postprocessing-file)
+*  [Dependency](#Dependency)
+*  [License](#License)
 
 Install and setup Anax
 ------------------------------------
@@ -48,14 +44,12 @@ You need a Anax installation, before you can use this module. You can create a s
 
 Scaffold a sample Anax installation `anax-site-develop` into the directory `rem`.
 
-```
+```bash
 $ anax create weather anax-site-develop
 $ cd weather
 ```
 
 Point your webserver to `weather/htdocs` and Anax should display a Home-page.
-
-
 
 Install as Anax module
 ------------------------------------
@@ -78,9 +72,6 @@ Optionally you may copy the API documentation.
 rsync -av vendor/chai17/weather/content/api.md content/api.md
 ```
 
-
-
-
 Install using scaffold postprocessing file
 ------------------------------------
 
@@ -92,23 +83,15 @@ bash vendor/chai17/anax/scaffold/postprocess.d/700_weather.bash
 
 The postprocessing script should be run after the `composer require` is done.
 
-
-
-
-
 Dependency
 ------------------
 
 This is a Anax modulen and primarly intended to be used together with the Anax framework.
 
-
-
 License
 ------------------
 [![License](https://poser.pugx.org/chai17/weather/license)](https://packagist.org/packages/chai17/weather)
 This software carries a MIT license. See [LICENSE.txt](LICENSE.txt) for details.
-
-
 
 ```
  .  

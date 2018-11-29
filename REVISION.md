@@ -4,9 +4,9 @@ Revision history
 v2.0.0 (2018-11-28)
 ---------------------------------
 
-* Many versions one day
+*  Many versions one day
 
 v0.0.1 (2018-11-28)
 ---------------------------------
 
-* First version.
+*  First version.
