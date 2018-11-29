@@ -11,7 +11,7 @@ class Location implements ContainerInjectableInterface
 
     use ContainerInjectableTrait;
 
-    $location = [];
+    private $location = [];
 
     public function setLocation($ipNumber)
     {
