@@ -3,6 +3,7 @@ anax-chai17-weather
 
 Code and build Status
 ----------------------------------
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c0f57f2c2b4c46539d9f135475ba2bb4)](https://app.codacy.com/app/Edugolr/anax-chai17-weather?utm_source=github.com&utm_medium=referral&utm_content=Edugolr/anax-chai17-weather&utm_campaign=Badge_Grade_Dashboard)
 [![Build Status](https://travis-ci.org/Edugolr/anax-chai17-weather.svg?branch=master)](https://travis-ci.org/Edugolr/anax-chai17-weather)
 [![CircleCI](https://circleci.com/gh/Edugolr/anax-chai17-weather.svg?style=svg)](https://circleci.com/gh/Edugolr/anax-chai17-weather)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Edugolr/anax-chai17-weather/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Edugolr/anax-chai17-weather/?branch=master)
