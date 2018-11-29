@@ -1,6 +1,12 @@
 {
     "name" : "chai17/weather",
     "description": "A anax weather module",
+    "authors": [
+        {
+            "name": "Christofer Wikman",
+            "email": "christofer.wikman@gmailcom"
+        }
+    ],
     "license": "MIT",
     "minimum-stability": "beta",
     "prefer-stable": true,
