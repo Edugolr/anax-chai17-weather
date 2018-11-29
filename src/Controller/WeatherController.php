@@ -18,8 +18,7 @@ class WeatherController implements ContainerInjectableInterface
         $api = $this->di->get("ipstack");
         $ipstack = $api["config"];
         $getipInfo = new Models\Curl;
-        $extra =  "&fields=ip";
-        $userIp =  $getipInfo->cUrl($ipstack["url"]. "check". '?access_key='. $ipstack["key"]. $extra);
+        $userIp =  $getipInfo->cUrl($ipstack["url"]. "check". '?access_key='. $ipstack["key"]. "&fields=ip");
         $apiResult = json_decode($userIp, true);
 
         $session->set("userIp", $apiResult["ip"]);
@@ -51,21 +50,13 @@ class WeatherController implements ContainerInjectableInterface
         $page = $this->di->get("page");
         $ipNumber = $request->getGet("ip");
         $location = $locationHandler->getLocation($ipNumber, $ipstack, $mapquest);
-
-        $extra = "?lang=sv&units=auto";
         $mapDiv = $map->getMap($location["latitude"], $location["longitude"]);
-        $weatherJson = $getJson->cUrl($darksky["url"]. $darksky["key"]. "/". $location["latitude"]. ",". $location["longitude"]. $extra);
+        $weatherJson = $getJson->cUrl($darksky["url"]. $darksky["key"]. "/". $location["latitude"]. ",". $location["longitude"]. "?lang=sv&units=auto");
 
         $weather = json_decode($weatherJson, true);
-        $page->add("weather/weather", [
-            "location" => $location,
-            "mapDiv" => $mapDiv,
-            "weather" => $weather
-        ]);
+        $page->add("weather/weather", ["location" => $location, "mapDiv" => $mapDiv, "weather" => $weather]);
 
-        return $page->render([
-            "title" => $title,
-        ]);
+        return $page->render(["title" => $title,]);
     }
 
     public function weatherOldActionGet()
@@ -88,13 +79,11 @@ class WeatherController implements ContainerInjectableInterface
         $location = $locationHandler->getLocation($ipNumber, $ipstack, $mapquest);
 
         $url = [];
-        $extra = "?lang=sv&units=auto";
         $time  = time() - (30 * 24 * 60 * 60);
         for ($i=0; $i < 31; $i++) {
             $time  = time() - ($i * 24 * 60 * 60);
-            array_push($url, $darksky["url"]. $darksky["key"]. "/". $location["latitude"]. ",". $location["longitude"]. ",". $time. $extra);
+            array_push($url, $darksky["url"]. $darksky["key"]. "/". $location["latitude"]. ",". $location["longitude"]. ",". $time. "?lang=sv&units=auto");
         }
-
 
         $mapDiv = $map->getMap($location["latitude"], $location["longitude"]);
         $weatherJson = $getJson->cUrlMulti($url);
@@ -103,14 +92,8 @@ class WeatherController implements ContainerInjectableInterface
             array_push($weather, json_decode($weatherJson[$i], true));
         }
 
-        $page->add("weather/weatherOld", [
-            "location" => $location,
-            "mapDiv" => $mapDiv,
-            "weather" => $weather
-        ]);
+        $page->add("weather/weatherOld", ["location" => $location, "mapDiv" => $mapDiv, "weather" => $weather]);
 
-        return $page->render([
-            "title" => $title,
-        ]);
+        return $page->render(["title" => $title,]);
     }
 }
