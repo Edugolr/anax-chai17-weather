@@ -9,7 +9,7 @@ Välj prognos eller gamla rapporter
       <input type="radio" name="action" onclick="document.getElementById('weather').action='<?= htmlentities(url("weather/weatherOld")) ?>';"> Vädret gammalt (30 dagar)<br>
     </form>
 </div> <br><br>
-Ange ip eller ort för väderleksrapport
+Ange Ort eller ip för väderleksrapport
 <div class="">
     <form id="weather" class="" action='<?= htmlentities(url("weather/weather")) ?>' method="get">
         Ip:<input type="text" name="ip" value="<?=htmlentities($ip) ?>">
