@@ -18,7 +18,8 @@ class Curl
     {
         $chandle= [];
         $mhandle = curl_multi_init();
-        for ($i=0; $i < count($url); $i++) {
+        $count = count($url)
+        for ($i=0; $i < $count; $i++) {
             array_push($chandle, curl_init($url[$i]));
             curl_setopt($chandle[$i], CURLOPT_RETURNTRANSFER, true);
             curl_multi_add_handle($mhandle, $chandle[$i]);
@@ -30,14 +31,16 @@ class Curl
         } while ($running);
 
         //close the handles
-        for ($i=0; $i < count($chandle); $i++) {
+        $count = count($chandle)
+        for ($i=0; $i < $count; $i++) {
             curl_multi_remove_handle($mhandle, $chandle[$i]);
         }
 
         curl_multi_close($mhandle);
 
         $json = [];
-        for ($i=0; $i < count($chandle); $i++) {
+        $count = count($chandle)
+        for ($i=0; $i < $count; $i++) {
             array_push($json, curl_multi_getcontent($chandle[$i]));
         }
         return $json;
