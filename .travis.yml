@@ -1,3 +1,8 @@
+env:
+  global:
+    - CC_TEST_REPORTER_ID=c04cffc3db8710d798d7e62f2c68216ff8dff1f2b4b999d03ade018b36b9327a
+    - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct; else git log -1 --skip 1 --pretty=format:%ct; fi)
+
 language: php
 
 php:
@@ -27,8 +32,5 @@ before_script:
 script:
     - make check
     - make test
-    - vendor/bin/codecept run unit --coverage --coverage-xml
-
-after_script:
-- mv tests/_output/coverage.xml clover.xml
-- ./cc-test-reporter after-build --coverage-input-type clover --id c04cffc3db8710d798d7e62f2c68216ff8dff1f2b4b999d03ade018b36b9327a --exit-code $TRAVIS_TEST_RESULT
+    - "phpunit --testsuite=unit --coverage-text --coverage-clover build/logs/clover.xml"
+    - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi
