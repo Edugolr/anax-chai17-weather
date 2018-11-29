@@ -12,7 +12,7 @@ Code and build Status
 [![Code Intelligence Status](https://scrutinizer-ci.com/g/Edugolr/anax-chai17-weather/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
 [![Maintainability](https://api.codeclimate.com/v1/badges/33cddf087b9670138b32/maintainability)](https://codeclimate.com/github/Edugolr/anax-chai17-weather/maintainability)
 [![SymfonyInsight](https://insight.symfony.com/projects/d1ef4ffd-911b-4796-b2d3-e557fd209a59/mini.svg)](https://insight.symfony.com/projects/d1ef4ffd-911b-4796-b2d3-e557fd209a59)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/33cddf087b9670138b32/test_coverage)](https://codeclimate.com/github/Edugolr/anax-chai17-weather/test_coverage)
+
 
 
 Versions
