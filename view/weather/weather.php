@@ -14,7 +14,7 @@ if (isset($weather["currently"])) {
     ?>
     <div class="container days">
         <div class="container card  current">
-            <i class="<?=$weather["currently"]["icon"] ?>"></i>
+            <i class="<?=htmlentities($weather["currently"]["icon"]) ?>"></i>
             Vädret just nu: <?=  htmlentities(strftime("%c", $weather["currently"]["time"]))?> <br>
             Väderlek  : <?= htmlentities($weather["currently"]["summary"]) ?><br>
             Temperatur: <?= htmlentities($weather["currently"]["temperature"]) ?> &#8451;<br>

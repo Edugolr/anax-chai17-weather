@@ -31,11 +31,11 @@ Chat
 Table of content
 ------------------------------------
 
-*  [Install and setup Anax](#Install-and-setup-Anax)
-*  [Install as Anax module](#Install-as-Anax-module)
-*  [Install using scaffold postprocessing file](#Install-using-scaffold-postprocessing-file)
-*  [Dependency](#Dependency)
-*  [License](#License)
+ * [Install and setup Anax](#Install-and-setup-Anax)
+ * [Install as Anax module](#Install-as-Anax-module)
+ * [Install using scaffold postprocessing file](#Install-using-scaffold-postprocessing-file)
+ * [Dependency](#Dependency)
+ * [License](#License)
 
 Install and setup Anax
 ------------------------------------
@@ -45,8 +45,8 @@ You need a Anax installation, before you can use this module. You can create a s
 Scaffold a sample Anax installation `anax-site-develop` into the directory `rem`.
 
 ```bash
-$ anax create weather anax-site-develop
-$ cd weather
+anax create weather anax-site-develop
+cd weather
 ```
 
 Point your webserver to `weather/htdocs` and Anax should display a Home-page.
@@ -58,17 +58,17 @@ This is how you install the module into an existing Anax installation.
 
 Install using composer.
 
-```
+```bash
 composer require chai17/weather
 ```
 
-```
+```bash
 rsync -av vendor/chai17/weather/config ./
 ```
 
 Optionally you may copy the API documentation.
 
-```
+```bash
 rsync -av vendor/chai17/weather/content/api.md content/api.md
 ```
 
